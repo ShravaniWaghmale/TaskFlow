@@ -14,7 +14,7 @@ function AddTask({ onTaskAdded }) {
         };
 
         try {
-            const response = await fetch("http://localhost:8080/tasks", {
+            const response = await fetch("https://taskflow-qli3.onrender.com/tasks",  {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

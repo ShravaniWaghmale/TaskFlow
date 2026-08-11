@@ -4,16 +4,19 @@ function TaskList({ tasks, setTasks }) {
         try {
             const task = tasks.find((task) => task.id === id);
 
-            const response = await fetch(`http://localhost:8080/tasks/${id}`, {
-                method: "PUT",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    ...task,
-                    completed: true,
-                }),
-            });
+            const response = await fetch(
+                `https://taskflow-qli3.onrender.com/tasks/${id}`,
+                {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        ...task,
+                        completed: true,
+                    }),
+                }
+            );
 
             if (!response.ok) {
                 throw new Error("Failed to complete task");
@@ -35,9 +38,12 @@ function TaskList({ tasks, setTasks }) {
 
     const deleteTask = async (id) => {
         try {
-            const response = await fetch(`http://localhost:8080/tasks/${id}`, {
-                method: "DELETE",
-            });
+            const response = await fetch(
+                `https://taskflow-qli3.onrender.com/tasks/${id}`,
+                {
+                    method: "DELETE",
+                }
+            );
 
             if (!response.ok) {
                 throw new Error("Failed to delete task");

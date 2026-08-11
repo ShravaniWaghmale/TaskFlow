@@ -7,7 +7,7 @@ function App() {
 
     const fetchTasks = async () => {
         try {
-            const response = await fetch("http://localhost:8080/tasks");
+            const response = await fetch("https://taskflow-qli3.onrender.com/tasks");
             const data = await response.json();
             setTasks(data);
         } catch (error) {
